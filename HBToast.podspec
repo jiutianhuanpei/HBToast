@@ -22,6 +22,6 @@ Pod::Spec.new do |s|
   s.frameworks = "UIKit"
   s.requires_arc = true
   s.swift_version = '5.0'
-  s.dependency = "SnapKit"
+  s.dependency "SnapKit"
 
 end
