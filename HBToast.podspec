@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.author       = { "shenhongbang" => "shenhongbang@163.com" }
 
-  s.platform     = :ios, "8.0"
+  s.platform     = :ios, "10.0"
 
   s.source       = { :git => "https://github.com/jiutianhuanpei/HBToast.git", :tag => s.version }
 
