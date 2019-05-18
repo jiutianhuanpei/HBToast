@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "HBToast"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "Swift 版的 Toast 控件"
 
   s.description  = <<-DESC
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.author       = { "shenhongbang" => "shenhongbang@163.com" }
 
-  s.platform     = :ios, "10.0"
+  s.platform     = :ios, "11.0"
 
   s.source       = { :git => "https://github.com/jiutianhuanpei/HBToast.git", :tag => s.version }
 
