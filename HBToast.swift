@@ -12,7 +12,7 @@ import SnapKit
 private var keyWindow: UIWindow {
     
     let win = UIApplication.shared.keyWindow
-
+    
     if let w = win {
         return w
     }
@@ -46,9 +46,9 @@ public class HBToast: UIView {
             maker.center.equalToSuperview()
             maker.left.greaterThanOrEqualToSuperview().offset(30)
         }
-
     }
     
+    private static var currentSuperView: UIView!
     
     /// 显示自定义视图
     ///
@@ -98,7 +98,6 @@ public class HBToast: UIView {
     
     
     private var timer: Timer?
-
     
     /// 隐藏toast
     ///
@@ -117,9 +116,19 @@ public class HBToast: UIView {
                 self?.dismissToast()
             })
         }
-        
-       
         return self
+    }
+    
+    
+    /// 隐藏toast
+    ///
+    /// - Parameter delay: 延时几秒后隐藏, 默认0秒，立即隐藏
+    public class func dismiss(_ delay: TimeInterval = 0) {
+        let toast = currentToast(in: currentSuperView)
+        
+        guard toast != nil else { return  }
+        
+        toast?.dismiss(delay)
     }
     
     /// 显示 toast 时，是否可以点击下面的视图，默认 false 不可以穿透
@@ -142,6 +151,8 @@ public class HBToast: UIView {
     private class func _show(_ customView: UIView, in view: UIView? = nil, delay: TimeInterval?) -> HBToast {
         
         let superView = view ?? keyWindow
+        
+        currentSuperView = superView
         
         var to = currentToast(in: superView)
         if to == nil {
@@ -175,6 +186,8 @@ public class HBToast: UIView {
     private class func _show(_ text: String, in view: UIView? = nil, delay: TimeInterval?) -> HBToast {
         
         let superView = view ?? keyWindow
+        
+        currentSuperView = superView
         
         var to = currentToast(in: superView)
         if to == nil {
@@ -286,4 +299,24 @@ public class HBToast: UIView {
         return lbl
     }()
     
+    /// 背景色，default: UIColor.black.withAlphaComponent(0.3)
+    public var bgViewColor: UIColor? {
+        willSet {
+            bgView.backgroundColor = newValue
+        }
+    }
+    
+    /// 文本的字体颜色， default: .white
+    public var textColor: UIColor? {
+        willSet {
+            lbl.textColor = newValue
+        }
+    }
+    
+    /// 文本的字体，default: .systemFont(ofSize: 14)
+    public var font: UIFont? {
+        willSet {
+            lbl.font = newValue
+        }
+    }
 }

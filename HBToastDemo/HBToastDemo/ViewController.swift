@@ -15,13 +15,15 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func showToast(_ sender: Any) {
+        let toast = HBToast.show("666", in: view.window)
+        toast.canTouchThrough = true
+        toast.textColor = .red
+        toast.font = .systemFont(ofSize: 40)
+    }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        
-        
-        HBToast.show("666666").dismiss(4).canTouchThrough = true
-        
+    @IBAction func dismissToast(_ sender: Any) {
+        HBToast.dismiss()
     }
     
 
