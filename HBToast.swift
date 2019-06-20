@@ -167,11 +167,23 @@ public class HBToast: UIView {
         
         toast.bgView.addSubview(customView)
         
+        var width: CGFloat?, height: CGFloat?
+        
+        if customView.constraints.count == 0 {
+            width = customView.frame.width
+            height = customView.frame.height
+        }
+        
         customView.snp.makeConstraints { (maker) in
             maker.top.equalToSuperview().offset(edgeInsets.top)
             maker.left.equalToSuperview().offset(edgeInsets.left)
             maker.bottom.equalToSuperview().offset(-edgeInsets.bottom)
             maker.right.equalToSuperview().offset(-edgeInsets.right)
+            
+            if let w = width, let h = height {
+                maker.width.equalTo(w)
+                maker.height.equalTo(h)
+            }
         }
         
         if let de = delay {
@@ -320,3 +332,23 @@ public class HBToast: UIView {
         }
     }
 }
+
+public extension HBToast {
+    
+    /// 显示一个 loading，一直显示，需要手动调用 dismiss
+    class func showLoading() -> HBToast {
+        
+        let hud = UIActivityIndicatorView(style: .whiteLarge)
+        let bgView: UIView = {
+            let v = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
+            return v
+        }()
+        
+        bgView.addSubview(hud)
+        hud.center = bgView.center
+        
+        hud.startAnimating()
+        return HBToast.show(bgView)
+    }
+}
+
