@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "HBToast"
-  s.version      = "0.0.5"
+  s.version      = "0.0.6"
   s.summary      = "Swift 版的 Toast 控件"
 
   s.description  = <<-DESC
