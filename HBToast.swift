@@ -336,6 +336,7 @@ public class HBToast: UIView {
 public extension HBToast {
     
     /// 显示一个 loading，一直显示，需要手动调用 dismiss
+    @discardableResult
     class func showLoading() -> HBToast {
         
         let hud = UIActivityIndicatorView(style: .whiteLarge)
