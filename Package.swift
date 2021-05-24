@@ -15,7 +15,7 @@ let package = Package(
         .package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.0.1")
     ],
     targets: [
-        .target(name: "HBToast", dependencies: []),
+        .target(name: "HBToast", dependencies: ["SnapKit"]),
         .testTarget(name: "HBToastTests", dependencies: ["HBToast"]),
     ]
 )
