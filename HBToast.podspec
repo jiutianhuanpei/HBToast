@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "HBToast"
-  s.version      = "0.0.6"
+  s.version      = "0.0.8"
   s.summary      = "Swift 版的 Toast 控件"
 
   s.description  = <<-DESC
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/jiutianhuanpei/HBToast.git", :tag => s.version }
 
-  s.source_files  = "HBToast.swift"
+  s.source_files  = "Sources/HBToast/HBToast.swift"
 
   s.frameworks = "UIKit"
   s.requires_arc = true
