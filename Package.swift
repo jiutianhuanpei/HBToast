@@ -12,7 +12,7 @@ let package = Package(
         .library(name: "HBToast", targets: ["HBToast"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.0.1")
+        .package(url: "https://gitee.com/jiutianhuanpei/SnapKit.git", from: "5.0.1")
     ],
     targets: [
         .target(name: "HBToast", dependencies: ["SnapKit"]),
